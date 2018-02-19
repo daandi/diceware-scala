@@ -1,5 +1,4 @@
 package biz.neumann.diceware
-import scala.collection.immutable
 import scala.util.Random._
 
 trait PassphraseGenerator {
