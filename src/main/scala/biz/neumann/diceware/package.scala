@@ -1,5 +1,7 @@
 package biz.neumann
 
+import biz.neumann.diceware.helpers.{PassphraseGenerator, Wordlist}
+
 package object diceware {
   type Dicethrow = List[Int]
   type Passphrase = String
@@ -7,8 +9,8 @@ package object diceware {
 
   lazy val standardGenerator = new PassphraseGenerator {
     val lexikon = new Wordlist("/diceware.wordlist.asc")
-
-    override def lookupDicethrow: Dicethrow => Option[Passphrase] =
-      lexikon lookupDicethrow _
+    override def lookupDicethrow: Dicethrow => Option[Passphrase] = lexikon lookupDicethrow _
   }
+
+
 }

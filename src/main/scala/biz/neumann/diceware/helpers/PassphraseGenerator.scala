@@ -1,4 +1,7 @@
-package biz.neumann.diceware
+package biz.neumann.diceware.helpers
+
+import biz.neumann.diceware.{Dicethrow, Passphrase, Word}
+
 import scala.util.Random._
 
 trait PassphraseGenerator {

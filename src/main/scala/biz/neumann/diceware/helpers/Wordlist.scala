@@ -1,6 +1,8 @@
-package biz.neumann.diceware
+package biz.neumann.diceware.helpers
 
 import java.io.InputStream
+
+import biz.neumann.diceware.{Dicethrow, Word}
 
 import scala.io.Source
 

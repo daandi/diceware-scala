@@ -5,11 +5,12 @@ lazy val root = (project in file(".")).
     inThisBuild(List(
       organization := "biz.neumann",
       scalaVersion := "2.12.4",
-      version      := "0.1.0-SNAPSHOT"
+      version      := "0.1.0-SNAPSHOT",
+      scalacOptions in Test ++= Seq("-Yrangepos")
     )),
     name := "diceware",
     libraryDependencies ++= List(
-      scalatest % Test,
-      scalacheck % Test
+      specs2 % Test,
+      specs2Scalacheck % Test
     )
   )

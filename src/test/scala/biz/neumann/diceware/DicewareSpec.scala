@@ -1,20 +1,17 @@
 package biz.neumann.diceware
 
-import org.scalatest.{FunSpec, FunSuite, Matchers}
+import org.specs2.Specification
 
-class DicewareSpec extends FunSpec with Matchers {
+class DicewareSpec extends Specification {def is = s2"""
+  Diceware Generators generate passphrases for
+    english native speakers                   $standardGeneratorTest
+  """
 
-  describe("Standard Generator") {
+  def standardGeneratorTest = {
     val numOfWords = 10
     val sep = "-"
     val passphrase = standardGenerator.generate(numOfWords,sep)
 
-    it(s"should contain of $numOfWords seperated by $sep") {
-      info(s"Generated Passphrase: $passphrase")
-
-      passphrase.split(sep) should have size numOfWords
-    }
-
+    passphrase.split(sep) must have size(numOfWords)
   }
-
 }
