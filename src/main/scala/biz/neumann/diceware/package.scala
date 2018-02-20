@@ -7,10 +7,13 @@ package object diceware {
   type Passphrase = String
   type Word = String
 
-  lazy val standardGenerator = new PassphraseGenerator {
-    val lexikon = new Wordlist("/diceware.wordlist.asc")
+  lazy val default = new PassphraseGenerator {
+    val lexikon = new Wordlist("/wordlists/diceware.wordlist.asc")
     override def lookupDicethrow: Dicethrow => Option[Passphrase] = lexikon lookupDicethrow _
   }
+
+  lazy val english = default
+
 
 
 }

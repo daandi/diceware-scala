@@ -10,7 +10,7 @@ class DicewareSpec extends Specification with ScalaCheck {def is = s2"""
   def standardGeneratorTest = {
     val numOfWords = 10
     val sep = "-"
-    val passphrase = standardGenerator.generate(numOfWords,sep)
+    val passphrase = default.generate(numOfWords,sep)
 
     passphrase.split(sep) must have size(numOfWords)
   }

@@ -15,13 +15,9 @@ Diceware is a approach to passpharse geneeration that aims to generate easy to r
 import biz.neumann.diceware._
 
 standardGenerator.generate(numberOfWords = 5, separator = "-")
-
 //res0: biz.neumann.diceware.Passphrase = zm-abash-par-heck-23
 
-
-
 standardGenerator.generate(numberOfWords = 6, separator = ".")
-
 //res1: biz.neumann.diceware.Passphrase = def.76.fink.cia.balsa.fifth
 
 ```
