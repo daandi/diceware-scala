@@ -1,8 +1,8 @@
 package biz.neumann.diceware
 
-import org.specs2.Specification
+import org.specs2.{ScalaCheck, Specification}
 
-class DicewareSpec extends Specification {def is = s2"""
+class DicewareSpec extends Specification with ScalaCheck {def is = s2"""
   Diceware Generators generate passphrases for
     english native speakers                   $standardGeneratorTest
   """
