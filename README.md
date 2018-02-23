@@ -9,19 +9,19 @@ Diceware is a approach to passpharse geneeration that aims to generate easy to r
 
 [http://world.std.com/~reinhold/diceware.html]
 
+## Why this implementation ?
+A password gets easier to remember if it can be connected to a story, is funny or somehow feels interesting to you.
+Tastes differ, 
+
 # Passphrase generators
 ## Usage
 ```scala
 import biz.neumann.diceware._
 
-standardGenerator.generate(numberOfWords = 5, separator = "-")
-
-//res0: biz.neumann.diceware.Passphrase = zm-abash-par-heck-23
-
-
-
-standardGenerator.generate(numberOfWords = 6, separator = ".")
-
+english.generate(numberOfWords = 6, separator = ".")
 //res1: biz.neumann.diceware.Passphrase = def.76.fink.cia.balsa.fifth
+
+kingJames.generate(numberOfWords = 5, separator = "-")
+//res10: biz.neumann.diceware.Passphrase = touched-Asuppim-thick-Marcus-evangelist
 
 ```
