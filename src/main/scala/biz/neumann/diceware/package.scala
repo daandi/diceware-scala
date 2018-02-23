@@ -7,12 +7,20 @@ package object diceware {
   type Passphrase = String
   type Word = String
 
-  lazy val default = new PassphraseGenerator {
-    val lexikon = new Wordlist("/wordlists/diceware.wordlist.asc")
+  case class PassphraseFor(pathToWordlistResoure: String) extends PassphraseGenerator {
+    val lexikon = new Wordlist(pathToWordlistResoure)
     override def lookupDicethrow: Dicethrow => Option[Passphrase] = lexikon lookupDicethrow _
   }
 
+  /* English */
+  lazy val default = PassphraseFor("/wordlists/diceware.wordlist.asc")
   lazy val english = default
+
+  /* King James Bible for the religious type */
+  lazy val kingJames = PassphraseFor("/wordlists/king_james_wordlist.txt")
+
+  /* Lord of the Rings */
+  lazy val lordOfTheRings = PassphraseFor("/wordlists/lotr.txt")
 
 
 
