@@ -1,27 +1,17 @@
 package biz.neumann
 
-import biz.neumann.diceware.helpers.{PassphraseGenerator, Wordlist}
-
 package object diceware {
   type Dicethrow = List[Int]
   type Passphrase = String
   type Word = String
 
-  case class PassphraseFor(pathToWordlistResoure: String) extends PassphraseGenerator {
-    val lexikon = new Wordlist(pathToWordlistResoure)
-    override def lookupDicethrow: Dicethrow => Option[Passphrase] = lexikon lookupDicethrow _
-  }
-
   /* English */
-  lazy val default = PassphraseFor("/wordlists/diceware.wordlist.asc")
-  lazy val english = default
+  lazy val english = DicewareGenerator.fromResource("/wordlists/diceware.wordlist.asc")
+  lazy val default = english
 
   /* King James Bible for the religious type */
-  lazy val kingJames = PassphraseFor("/wordlists/king_james_wordlist.txt")
+  lazy val kingJames = DicewareGenerator.fromResource("/wordlists/king_james.diceware")
 
-  /* Lord of the Rings */
-  lazy val lordOfTheRings = PassphraseFor("/wordlists/lotr.txt")
-
-
-
+  /* German */
+  lazy val german =  DicewareGenerator.fromResource("/wordlists/german_wordlist.diceware")
 }

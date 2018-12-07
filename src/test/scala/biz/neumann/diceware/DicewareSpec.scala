@@ -1,17 +1,22 @@
 package biz.neumann.diceware
 
-import org.specs2.{ScalaCheck, Specification}
+import biz.neumann.diceware.helpers.PassphraseGenerator
+import org.specs2.Specification
 
-class DicewareSpec extends Specification with ScalaCheck {def is = s2"""
-  Diceware Generators generate passphrases for
-    english native speakers                   $standardGeneratorTest
+class DicewareSpec extends Specification {def is = s2"""
+  Diceware Generators generate passphrases with
+    the expected configuration    $configurationTest
+    german words                  ${genTest(german)}
   """
 
-  def standardGeneratorTest = {
-    val numOfWords = 10
+  def configurationTest = {
+    val numOfWords = 4
     val sep = "-"
     val passphrase = default.generate(numOfWords,sep)
 
     passphrase.split(sep) must have size(numOfWords)
   }
+
+  def genTest(gen: PassphraseGenerator) = gen must not throwA[NullPointerException]()
+
 }

@@ -1,15 +1,11 @@
 package biz.neumann.diceware.helpers
 
-import java.io.InputStream
-
 import biz.neumann.diceware.{Dicethrow, Word}
-
 import scala.io.Source
 
-class Wordlist(path: String) {
-  private val is : InputStream = getClass.getResourceAsStream(path)
+class Wordlist(src: Source) {
   private def numberStringToIntegers(s: String) = s.toList.map(_.toString.toInt)
-  private val words : Map[Dicethrow, Word] = Source.fromInputStream(is, "utf-8")
+  private val words : Map[Dicethrow, Word] = src
     .getLines()
     .filterNot(_.startsWith("#")) // not part of default implementation but allows to add comments with # in dicefiles
     .foldLeft(List.empty[(Dicethrow, Word)]){ case (acc, line) =>
@@ -18,4 +14,11 @@ class Wordlist(path: String) {
     }.toMap
 
   def lookupDicethrow(dicethrow: Dicethrow) : Option[Word] = words get dicethrow
+}
+
+object Wordlist {
+  def fromResource(resource: String) = {
+    val is = getClass.getResourceAsStream(resource)
+    new Wordlist(Source.fromInputStream(is)("utf-8"))
+  }
 }

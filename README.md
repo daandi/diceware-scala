@@ -1,9 +1,10 @@
-# Diceware for scala
+# Diceware for Scala
+This library generates passwords/passphrases using the diceware algorithm.
 
-This library written in Scala provides passphrase generators for english and german and means to generate one's own passphrase generators by providing an input text.
+For a little more freedom and variance it comes with an english and german word list but also provides the means to generate one's own passphrase generators by providing a text source of your own choice.
 
 # Diceware
-Diceware is a approach to passpharse geneeration that aims to generate easy to remember passphrases.
+Diceware is a approach to passpharse generation that aims to generate easy to remember passphrases.
 
 [https://en.wikipedia.org/wiki/Diceware]
 
@@ -11,7 +12,9 @@ Diceware is a approach to passpharse geneeration that aims to generate easy to r
 
 ## Why this implementation ?
 A password gets easier to remember if it can be connected to a story, is funny or somehow feels interesting to you.
-Tastes differ, 
+Sometimes you do not have the time to think one up so this gerator provides something similar.
+
+Sometimes you need to transfer a password by phone/voice. Image having to tell your old man over the phone to enter `V@2Qc$RM4!kYLdJeHF4#c` to be able to unlock the router at home.
 
 # Passphrase generators
 ## Usage

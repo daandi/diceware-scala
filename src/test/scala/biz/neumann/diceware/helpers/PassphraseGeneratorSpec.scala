@@ -1,8 +1,7 @@
 package biz.neumann.diceware.helpers
 
 import biz.neumann.diceware.Dicethrow
-import org.scalacheck.{Arbitrary, Prop}
-import org.specs2.matcher.ContainWithResultSeq
+import org.scalacheck.{Arbitrary}
 import org.specs2.{ScalaCheck, Specification}
 
 
