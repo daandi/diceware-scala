@@ -1,7 +1,9 @@
 *.class
 *.log
 /src/main/resource/korpus/*
-.bloop/*
-.metals/*
-.idea/*
-targer
+.bloop
+**/bloop/**
+.metals
+.idea
+**/target/*
+project/project
